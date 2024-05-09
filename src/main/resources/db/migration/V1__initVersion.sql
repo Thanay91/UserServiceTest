@@ -28,7 +28,7 @@ CREATE TABLE user
     deleted           BIT(1) NOT NULL,
     name              VARCHAR(255) NULL,
     email             VARCHAR(255) NULL,
-    hashed_password   VARCHAR(255) NULL,
+    hashed_password   VARCHAR(255) NOT NULL,
     is_email_verified BIT(1) NOT NULL,
     CONSTRAINT pk_user PRIMARY KEY (id)
 );

@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.dto.UserDTO;
 import com.example.demo.exceptions.InvalidPasswordException;
 import com.example.demo.exceptions.TokenInvalidOrExpiredException;
 import com.example.demo.exceptions.UserAlreadyExistsException;
@@ -81,12 +82,13 @@ public class UserService {
         return savedToken;
     }
 
-    public Token validateToken(String tokenValue){
+    public UserDTO validateToken(String tokenValue){
         Optional<Token> optionalToken = tokenRepository.findTokenByValueAndExpiryAtGreaterThanAndDeleted(
                 tokenValue, new Date(), false);
         if(optionalToken.isEmpty()){
             return null;
         }
-        return optionalToken.get();
+        UserDTO userDTO = User.from(optionalToken.get().getUser());
+        return userDTO;
     }
 }

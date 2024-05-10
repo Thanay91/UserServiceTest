@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.example.demo.dto.UserDTO;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -20,4 +21,15 @@ public class User extends BaseModel {
     @ManyToMany
     private List<Role> roles;
     private boolean isEmailVerified;
+
+
+
+    public static UserDTO from(User user){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setEmail(user.email);
+        userDTO.setEmailVerified(user.isEmailVerified);
+        userDTO.setRoles(user.roles);
+        userDTO.setName(user.name);
+        return userDTO;
+    }
 }

@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.LoginRequestDTO;
-import com.example.demo.dto.LoginResponseDTO;
-import com.example.demo.dto.LogoutRequestDTO;
-import com.example.demo.dto.SignUpRequestDTO;
+import com.example.demo.dto.*;
 import com.example.demo.exceptions.InvalidPasswordException;
 import com.example.demo.exceptions.TokenInvalidOrExpiredException;
 import com.example.demo.exceptions.UserAlreadyExistsException;
@@ -52,11 +49,9 @@ public class UserController {
     }
 
     @GetMapping("/validate/{tokenValue}")
-    public ResponseEntity<Token> isValidToken(@PathVariable(name = "tokenValue") String tokenValue){
-        Token token = userService.validateToken(tokenValue);
-        ResponseEntity<Token> responseEntity = new ResponseEntity<>(token,
-                token!=null ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR
-        );
-        return responseEntity;
+    public UserDTO isValidToken(@PathVariable(name = "tokenValue") String tokenValue){
+        UserDTO userDTO = userService.validateToken(tokenValue);
+        return userDTO;
+
     }
 }

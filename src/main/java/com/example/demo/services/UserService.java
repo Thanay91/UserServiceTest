@@ -13,6 +13,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
@@ -20,7 +21,7 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
 
-@Service
+@Repository
 public class UserService {
 
     @Autowired

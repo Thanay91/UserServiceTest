@@ -25,8 +25,8 @@ class DemoApplicationTests {
     @Test
     void registerClientToMyDatabase(){
         RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("oidc-client")
-                .clientSecret("$2a$12$5TCFCt/LuGvHQeBLhz4VZuVIExxhBZWZJ4LOss3qWG82PhAAKkZ5i")
+                .clientId("postman-client")
+                .clientSecret("$2a$12$80oHo8Dq1DZlrps7AcVyKe0fzAhr7TFQPBEY2Ci6QuiT6EaHieqOu")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
